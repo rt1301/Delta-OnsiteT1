@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
+    <h1>Paint App</h1>
 <div class="container">
     <div class="navbar">
         <div class="toolbox">
@@ -31,9 +32,12 @@
         <input id="size" type="range" min="3" max="10" step="1" value="3">
         <span class="badge">3</span>
        </div>
-       </div>
        <div class="form-control">
-           <button id="empty">Clear Canvas</button>
+        <button id="empty">Clear Canvas</button>
+        </div>
+        <div class="form-control">
+            <a id="link">Save Image</a>
+        </div>
        </div>
     </div>
     <canvas id="paintArea"></canvas>

@@ -1,6 +1,6 @@
 var canvas = document.getElementById('paintArea');
 var ctx    = canvas.getContext('2d');
-canvas.height = window.innerHeight - 50;
+canvas.height = window.innerHeight - 100;
 canvas.width  = window.innerWidth/2;
 var colorWheel = document.getElementById('color');
 var range       =  document.getElementById('size');
@@ -47,7 +47,7 @@ range.addEventListener('input',(event)=>{
 ctx.lineCap = 'round';
 window.addEventListener('resize',()=>{
     canvas.width = window.innerWidth/2;
-    canvas.height = window.innerHeight-50;
+    canvas.height = window.innerHeight-100;
     ctx.lineWidth = size;
 });
 
@@ -189,3 +189,10 @@ function drawEllipse(x,y,width,height)
      }
     
 }
+
+// Save Canvas Image Locally
+var link = document.getElementById('link');
+link.addEventListener('click',()=>{
+    link.setAttribute('download','painting.png');
+    link.setAttribute('href',canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+})

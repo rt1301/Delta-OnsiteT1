@@ -74,7 +74,7 @@ canvas.addEventListener('mousemove',(e)=>{
             ctx.lineTo(mouse.x,mouse.y);
             ctx.stroke();
         }
-        else if(drawEllipse)
+        else if(drawCircle)
         {
             ctx.strokeStyle = color;
             coor2.x = mouse.x;

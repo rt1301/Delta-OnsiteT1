@@ -4,11 +4,30 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-canvas
+.canvas
+{
+    display: inherit;
+}
+#paintArea
 {
     border: 2px solid black;
     cursor: pointer;
     margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+#tempCanvas
+{
+    border: 2px solid black;
+    cursor: pointer;
+    margin-right: auto;
+    position: absolute;
+    z-index: 2;
+}
+.hide
+{
+    display: none;
+    z-index: -1;
 }
 .container
 {

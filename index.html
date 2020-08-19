@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="toolbox">
+            <div class="form-control">
+                <label for="Shape">Shape</label>
+                <div class="shapes">
+                <button class="tool active" id="line"><i class="fas fa-slash"></i></button>
+                <button class="tool" id="rectangle"><i class="fas fa-rectangle-wide"></i></button>
+                <button class="tool" id="circle"><i class="far fa-circle"></i></button>
+                <button class="tool" id="eraser"><i class="fas fa-eraser"></i></button>
+                </div>
+            </div>
+        </div>
+       <div class="container-nav">
+        <div class="form-control">
+            <label for="color">Color</label>
+            <input id="color" type="color">
+        </div>
+       <div class="form-control">
+        <label class="size" for="size">Brush Size</label>
+        <input id="size" type="range" min="3" max="10" step="1" value="3">
+        <span class="badge">3</span>
+       </div>
+       </div>
+       <div class="form-control">
+           <button id="empty">Clear Canvas</button>
+       </div>
+    </div>
+    <canvas id="paintArea"></canvas>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+*
+{
+    padding: 0;
+    box-sizing: border-box;
+}
+canvas
+{
+    border: 2px solid black;
+    cursor: pointer;
+}
+.container
+{
+    display: flex;
+    justify-content: space-around;
+}
+div.container-nav
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80vh;
+}
+.navbar
+{
+    margin:auto;
+}
+.form-control
+{
+    font-size: 24px;
+    width: 100%;
+}
+#size,#color
+{
+    margin-left: 50px;
+}
+#color
+{
+    width: 150px;
+    border:none;
+    outline:none;
+}
+#size
+{
+    width: 150px;
+    background-color: #555454;
+}
+.badge
+{
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    position: relative;
+    top: -1px;
+    background-color: #dddada;
+}
+.shapes
+{
+    display: inline;
+}
+#line,#rectangle,#circle,#eraser
+{
+    margin: 0 5px;
+    border: none;
+    outline:none;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 5px;
+}
+button
+{
+    background-color: white;
+}
+button.active
+{
+    background-color: rgb(44, 83, 155);
+    border-radius: 5px;
+    color: white;
+}
+#empty
+{
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}

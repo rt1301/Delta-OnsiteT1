@@ -1,7 +1,7 @@
 var canvas = document.getElementById('paintArea');
 var tempCanvas = document.getElementById('tempCanvas');
 var ctx    = canvas.getContext('2d');
-var tempCtx = tempCanvas.getContext('2d');
+var    tempCtx = tempCanvas.getContext('2d');
 canvas.height = window.innerHeight - 100;
 canvas.width  = window.innerWidth/2;
 tempCanvas.height = window.innerHeight - 100;
@@ -25,6 +25,8 @@ var rectWidth = 0;
 var rectHeight = 0;
 var empty = document.getElementById("empty");
 var distance;
+var data_initial = [];
+var data_final   = [];
 var coor1 = {
     x: undefined,
     y:undefined
@@ -80,6 +82,8 @@ tempCanvas.addEventListener('mouseup',(e)=>{
 tempCanvas.addEventListener('mousemove',(e)=>{
     if(!up)
     {
+       if(drawCircle)
+       {
         setPosition(e);
         tcoor2.x = mouse.x;
         tcoor2.y = mouse.y;
@@ -89,8 +93,22 @@ tempCanvas.addEventListener('mousemove',(e)=>{
         tempCtx.lineWidth = size;
         tempCtx.closePath();
         tempCtx.stroke();
+       }
+       else if(drawRectangle)
+       {
+           setPosition(e);
+           tcoor2.x = mouse.x;
+           tcoor2.y = mouse.y;
+           tempCtx.clearRect(0,0,tempCanvas.width,tempCanvas.height);
+           createRectangle(tcoor1.x,tcoor1.y,tcoor2.x,tcoor2.y,tempCtx);
+           tempCtx.strokeStyle = color;
+           tempCtx.lineWidth = size;
+           tempCtx.closePath();
+           tempCtx.stroke();
+       }
     }
 })
+// var i=0;
 canvas.addEventListener('mouseup',(e)=>{
     setPosition(e);
     up = true;
@@ -128,15 +146,7 @@ canvas.addEventListener('mousemove',(e)=>{
             ctx.strokeStyle = color;
             coor2.x = mouse.x;
             coor2.y = mouse.y;
-            rectWidth = Math.abs(coor2.y - coor1.y);
-            rectHeight = Math.abs(coor2.x - coor1.x);
-            ctx.clearRect(coor1.x-5, coor1.y-5, lastWidth + 10, lastHeight + 10);
-            ctx.beginPath();
-            ctx.rect(coor1.x,coor1.y,rectWidth,rectHeight);
-            lastWidth = rectWidth;
-            lastHeight = rectHeight;
-            ctx.stroke();
-            ctx.closePath();
+            tempCanvas.classList.remove('hide');
         }
         else if(erase)
         {
@@ -170,7 +180,6 @@ circle.addEventListener('click',()=>{
     circle.classList.add('active');
 });
 rectangle.addEventListener('click',()=>{
-    tempCanvas.classList.add('hide');
     drawCircle = false;
     drawLine = false;
     drawRectangle = true;
@@ -192,6 +201,7 @@ line.addEventListener('click',()=>{
     line.classList.add('active');
 });
 eraser.addEventListener('click',()=>{
+    tempCanvas.classList.add('hide');
     drawCircle = false;
     drawLine = false;
     drawRectangle = false;
@@ -228,7 +238,16 @@ function drawEllipse(x,y,width,height,ctx)
      }
     
 }
-
+function createRectangle(x1,y1,x2,y2,ctx)
+{
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+    rectWidth = Math.abs(y2 - y1);
+    rectHeight = Math.abs(x2 - x1);
+    ctx.rect(x1,y1,rectWidth,rectHeight);
+    ctx.stroke();
+    ctx.closePath();
+}
 // Save Canvas Image Locally
 var link = document.getElementById('link');
 link.addEventListener('click',()=>{
